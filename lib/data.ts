@@ -159,7 +159,7 @@ export const ProjectsSectionContent = [
       },
     ],
   },
-];
+] as const;
 
 export const TestimonialSectionContent = [
   {
