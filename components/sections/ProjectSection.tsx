@@ -7,13 +7,13 @@ import SectionDesc from "../common/SectionDesc";
 export default function ProjectSection() {
   let { flagTitle, flagColor, title, description } = ProjectsSectionContent[0];
   return (
-    <section className="flex flex-col justify-center items-center scroll-mt-28 mt-14" >
-      <div className="w-full flex flex-wrap items-center md:items-end ">
+    <section id="work" className="flex flex-col justify-center items-center scroll-mt-28 mt-14" >
+      <div className="w-full flex flex-wrap items-start">
         <div className="flex flex-col items-center md:items-start w-full md:w-2/4">
           <FlagTitle color={flagColor}>{flagTitle}</FlagTitle>
           <SectionTitle>{title}</SectionTitle>
         </div>
-        <div className="md:w-2/4">
+        <div className="md:w-2/4 md:mt-7">
            <SectionDesc textAlign="text-justify">{description}</SectionDesc> 
         </div>
       </div>

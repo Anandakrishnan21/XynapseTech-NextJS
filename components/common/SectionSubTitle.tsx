@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-export default function SectionSubTitle() {
+export default function SectionSubTitle({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div>
-      
-    </div>
-  )
+    <p className="text-center md:text-left text-lg md:text-xl lg:text-2xl">
+      {children}
+    </p>
+  );
 }

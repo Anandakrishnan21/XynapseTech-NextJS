@@ -7,9 +7,13 @@ interface Props {
 
 export default function BannerLottie({ animationData }: Props) {
   return (
-    <Lottie
+    <div>
+      <Lottie
       animationData={animationData}
       className="w-[20rem] sm:w-[30rem] md:w-[30rem] lg:w-[35rem] lg:-mr-20"
+      style={{"transform": "none"}}
     />
+    </div>
+    
   );
 }

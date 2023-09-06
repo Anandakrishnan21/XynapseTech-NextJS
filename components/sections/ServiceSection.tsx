@@ -10,7 +10,7 @@ export default function ServiceSection() {
     ServiceSectionContent[0];
   return (
     <section
-      id="#service"
+      id="services"
       className="flex flex-col justify-center items-center scroll-mt-28"
     >
       <FlagTitle color={flagColor}>{flagTitle}</FlagTitle>
