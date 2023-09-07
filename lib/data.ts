@@ -1,6 +1,7 @@
 import digital_agency from "@/public/digital_agency.json";
 import unique_approach from "@/public/unique_approach.json";
 import marketingIcon from "@/public/marketing.png";
+import contactBannerImage from "@/public/contactBannerImage.png";
 
 export const links = [
   {
@@ -208,6 +209,16 @@ export const TestimonialSectionContent = [
   },
 ] as const;
 
+export const ContactSectionContent = [
+  {
+    id: 1,
+    flagTitle: "GET IN TOUCH",
+    flagColor: "#9cff2e",
+    title: "Let's work together!",
+    bannerImage: contactBannerImage,
+  },
+] as const;
+
 export const BlogPageContent = [
   {
     id: 1,
@@ -227,6 +238,7 @@ export const CareerPageContent = [
     subtitle: "Work smarter that ever",
     description:
       "new-path brings together every action required to perform better in your career.",
-    bannerImage: "https://images.pexels.com/photos/4974920/pexels-photo-4974920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    bannerImage:
+      "https://images.pexels.com/photos/4974920/pexels-photo-4974920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ] as const;
