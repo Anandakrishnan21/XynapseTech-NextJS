@@ -235,9 +235,9 @@ export const CareerPageContent = [
   {
     id: 1,
     title: "Shift your career for better output",
-    subtitle: "Work smarter that ever",
+    subtitle: "Work smarter than ever",
     description:
-      "new-path brings together every action required to perform better in your career.",
+      "New path brings together every action required to perform better in your career.Register as an intern in our company.",
     bannerImage:
       "https://images.pexels.com/photos/4974920/pexels-photo-4974920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
