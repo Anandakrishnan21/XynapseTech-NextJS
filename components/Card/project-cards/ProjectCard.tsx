@@ -34,7 +34,7 @@ export default function ProjectCard() {
           {ProjectsSectionContent[0].projects.map((project) => (
             <SwiperSlide
               key={project.id}
-              className="bg-custom text-white rounded-2xl lg:rounded-none 
+              className="bg-slate-900 text-white rounded-2xl lg:rounded-none 
               first:rounded-l-2xl 
               "
             >
