@@ -12,11 +12,11 @@ export default function FooterBottom() {
         Ltd. All Rights Reserved.
       </p>
       <div className="flex gap-2 items-center">
-        <Link href="" className="hover:text-gray-200">
+        <Link href="#" className="hover:text-gray-200">
           Terms & Conditions
         </Link>
         <div className="w-[1.5px] h-3 bg-gray-400"></div>
-        <Link href="" className="hover:text-gray-200">
+        <Link href="#" className="hover:text-gray-200">
           Privacy Policy
         </Link>
       </div>

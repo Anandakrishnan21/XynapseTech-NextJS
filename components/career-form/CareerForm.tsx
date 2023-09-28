@@ -1,16 +1,6 @@
 "use client";
-import { useState } from "react";
-import React from "react";
+import { useForm, FieldValues } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import {
   Card,
   CardContent,
@@ -31,6 +21,22 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function CareerForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm();
+
+  const onSubmit = async (data: FieldValues) => {
+    await new Promise((resolve) => {
+      setTimeout(resolve, 2000);
+    });
+
+    console.log("saff cup");
+    reset();
+  };
+
   return (
     <Card className="w-full md:w-4/6 lg:w-3/6">
       <CardHeader>
@@ -40,88 +46,180 @@ export default function CareerForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid w-full items-center gap-7">
             {/* name field */}
             <div className="flex items-center justify-between gap-5">
               {/* first name */}
               <div className="w-full space-y-1.5">
                 <Label htmlFor="firstname">First Name</Label>
-                <Input id="firstname" placeholder="Your first name" />
+                <Input
+                  {...register("firstname", {
+                    required: "First name is required.",
+                    minLength: {
+                      value: 3,
+                      message: "First name must be at least 3 characters.",
+                    },
+                    maxLength: {
+                      value: 25,
+                      message: "Maximum 25 characters are allowed.",
+                    },
+                  })}
+                  id="firstname"
+                  placeholder="Your first name"
+                />
+                {errors.firstname && (
+                  <p className="text-red-500 text-sm">{`${errors.firstname.message}`}</p>
+                )}
               </div>
               {/* second name */}
               <div className="w-full space-y-1.5">
                 <Label htmlFor="lastname">Last Name</Label>
-                <Input id="lastname" placeholder="Your second name" />
+                <Input
+                  {...register("lastname", {
+                    required: "Last name is required.",
+                    minLength: {
+                      value: 3,
+                      message: "First name must be at least 3 characters.",
+                    },
+                    maxLength: {
+                      value: 25,
+                      message: "Maximum 25 characters are allowed.",
+                    },
+                  })}
+                  id="lastname"
+                  placeholder="Your last name"
+                />
+                {errors.lastname && (
+                  <p className="text-red-500 text-sm">{`${errors.lastname.message}`}</p>
+                )}
               </div>
             </div>
             {/* email */}
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Email</Label>
-              <Input id="name" type="email" placeholder="Your email address" />
+              <Input
+                {...register("email", {
+                  required: "Email is required.",
+                })}
+                id="email"
+                type="email"
+                placeholder="Your email address"
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm">{`${errors.email.message}`}</p>
+              )}
             </div>
             {/* phone number */}
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="mobilenum">Mobile</Label>
               <Input
+                {...register("mobilenum", {
+                  required: "Mobile number is required.",
+                  minLength: {
+                    value: 10,
+                    message: "Atleast 10 digits are required.",
+                  },
+                })}
                 id="mobilenum"
                 type="tel"
                 placeholder="Your mobile number"
               />
+              {errors.mobilenum && (
+                <p className="text-red-500 text-sm">{`${errors.mobilenum.message}`}</p>
+              )}
             </div>
             {/* address */}
-            <div className="grid w-full gap-1.5">
+            <div className="grid w-full gap-2">
               <Label htmlFor="address">
                 Residential Address{" "}
                 <span className="text-gray-500">(Optional)</span>
               </Label>
               <Textarea
+                {...register("address", {
+                  maxLength: {
+                    value: 150,
+                    message: "Maximum 150 characters are allowed.",
+                  },
+                })}
                 placeholder="Your residential address..."
                 id="address"
                 className="resize-none"
               />
+              {errors.address && (
+                <p className="text-red-500 text-sm">{`${errors.address.message}`}</p>
+              )}
             </div>
-            {/* resume upload */}
-            <div className="grid w-full gap-1.5">
-              <Label htmlFor="resumeFile">Upload Resume</Label>
+            {/* resume url */}
+            <div className="grid w-full gap-2">
+              <Label htmlFor="resumeUrl">Resume Url</Label>
               <Input
-                id="resumeFile"
-                type="file"
-                placeholder="Your mobile number"
-                className="cursor-pointer"
+                {...register("resumeUrl", {
+                  required: "Resume url is required.",
+                })}
+                id="resumeUrl"
+                type="url"
+                placeholder="Your resume url"
               />
+              {errors.resumeUrl && (
+                <p className="text-red-500 text-sm">{`${errors.resumeUrl.message}`}</p>
+              )}
             </div>
             {/* linkedin url */}
-            <div className="grid w-full gap-1.5">
+            <div className="grid w-full gap-2">
               <Label htmlFor="linkedinUrl">
                 LinkedIn Profile Url
                 <span className="text-gray-500">(Optional)</span>
               </Label>
               <Input
+                {...register("linkedinUrl")}
                 id="linkedinUrl"
                 type="url"
                 placeholder="Your linkedin profile url"
               />
+              {errors.linkedinUrl && (
+                <p className="text-red-500 text-sm">{`${errors.linkedinUrl.message}`}</p>
+              )}
             </div>
 
             {/* University/College name */}
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="collegeName">University/College name</Label>
               <Input
+                {...register("collegeName", {
+                  required: "University/College name is required.",
+                  maxLength: {
+                    value: 80,
+                    message: "Maximum 80 characters are allowed.",
+                  },
+                })}
                 id="collegeName"
                 type="text"
                 placeholder="Your email address"
               />
+              {errors.collegeName && (
+                <p className="text-red-500 text-sm">{`${errors.collegeName.message}`}</p>
+              )}
             </div>
 
             {/* Major/Area of study */}
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="majorName">Major/Area of study</Label>
               <Input
+                {...register("majorName", {
+                  required: "Major/Area of study is required.",
+                  maxLength: {
+                    value: 50,
+                    message: "Maximum 50 characters are allowed.",
+                  },
+                })}
                 id="majorName"
                 type="text"
                 placeholder="Your email address"
               />
+              {errors.majorName && (
+                <p className="text-red-500 text-sm">{`${errors.majorName.message}`}</p>
+              )}
             </div>
             {/* cgpa&gradu date */}
             <div className="flex items-center justify-between gap-5">
@@ -129,15 +227,34 @@ export default function CareerForm() {
               <div className="w-full space-y-1.5">
                 <Label htmlFor="cgpa">Current CGPA</Label>
                 <Input
+                  {...register("cgpa", {
+                    required: "Current CGPA is required.",
+                    maxLength: {
+                      value: 5,
+                      message: "Maximum 5 characters are allowed.",
+                    },
+                  })}
                   type="number"
                   id="cgpa"
                   placeholder="Your current cgpa"
                 />
+                {errors.cgpa && (
+                  <p className="text-red-500 text-sm">{`${errors.cgpa.message}`}</p>
+                )}
               </div>
               {/*course duration */}
               <div className="w-full space-y-1.5">
                 <Label htmlFor="gradDate">Graduation Date</Label>
-                <Input type="month" id="gradDate" />
+                <Input
+                  {...register("gradDate", {
+                    required: "Graduation Date is required.",
+                  })}
+                  type="month"
+                  id="gradDate"
+                />
+                {errors.gradDate && (
+                  <p className="text-red-500 text-sm">{`${errors.gradDate.message}`}</p>
+                )}
               </div>
             </div>
 
@@ -145,18 +262,36 @@ export default function CareerForm() {
             <div className="w-full space-y-1.5 ">
               <Label htmlFor="skills">Skills</Label>
               <Textarea
-                placeholder="Your residential address..."
+                {...register("skills", {
+                  required: "Skills is required.",
+                  maxLength: {
+                    value: 500,
+                    message: "Maximum 500 characters are allowed.",
+                  },
+                })}
+                placeholder="Your skills"
                 id="skills"
                 className="resize-none"
               />
               <p className="text-sm text-muted-foreground">
                 Add each skills seperated by commas.
               </p>
+              {errors.skills && (
+                <p className="text-red-500 text-sm">{`${errors.skills.message}`}</p>
+              )}
             </div>
             {/* area of interest */}
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="interestArea">Area of Interest</Label>
-              <Select>
+              <Select
+                {...register("interestArea", {
+                  required: "This field is required.",
+                  maxLength: {
+                    value: 250,
+                    message: "Maximum 250 characters are allowed.",
+                  },
+                })}
+              >
                 <SelectTrigger id="interestArea">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
@@ -173,6 +308,9 @@ export default function CareerForm() {
                   <SelectItem value="Cyber security">Cyber security</SelectItem>
                 </SelectContent>
               </Select>
+              {errors.interestArea && (
+                <p className="text-red-500 text-sm">{`${errors.interestArea.message}`}</p>
+              )}
             </div>
 
             {/* project details */}
@@ -181,6 +319,13 @@ export default function CareerForm() {
                 Share details of any project you have worked on.
               </Label>
               <Textarea
+                {...register("projectDetails", {
+                  required: "Project details required.",
+                  maxLength: {
+                    value: 800,
+                    message: "Maximum 800 characters are allowed.",
+                  },
+                })}
                 placeholder="Project details...."
                 id="projectDetails"
                 className="resize-none"
@@ -188,6 +333,9 @@ export default function CareerForm() {
               <p className="text-sm text-muted-foreground">
                 Provide Source-code link or Live site link.
               </p>
+              {errors.projectDetails && (
+                <p className="text-red-500 text-sm">{`${errors.projectDetails.message}`}</p>
+              )}
             </div>
 
             {/* prefered internship duration */}
@@ -195,7 +343,11 @@ export default function CareerForm() {
               <Label htmlFor="internDuration">
                 Prefered internship duration
               </Label>
-              <Select>
+              <Select
+                {...register("internDuration", {
+                  required: "This field is required.",
+                })}
+              >
                 <SelectTrigger id="internDuration">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
@@ -207,12 +359,19 @@ export default function CareerForm() {
                   <SelectItem value="6 Month">6 Months</SelectItem>
                 </SelectContent>
               </Select>
+              {errors.internDuration && (
+                <p className="text-red-500 text-sm">{`${errors.internDuration.message}`}</p>
+              )}
             </div>
 
             {/* how did you here about us */}
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="hearSource">How did you here about us?</Label>
-              <Select>
+              <Select
+                {...register("hearSource", {
+                  required: "This field is required.",
+                })}
+              >
                 <SelectTrigger id="hearSource">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
@@ -250,15 +409,24 @@ export default function CareerForm() {
                   <SelectItem value="Other ">Other </SelectItem>
                 </SelectContent>
               </Select>
+              {errors.hearSource && (
+                <p className="text-red-500 text-sm">{`${errors.hearSource.message}`}</p>
+              )}
+            </div>
+
+            <div className="flex justify-center md:justify-end">
+              <Button
+                disabled={isSubmitting}
+                type="submit"
+                variant="blueBg"
+                className="w-[160px] justify-center font-normal disabled:bg-yellow-300"
+              >
+                Register
+              </Button>
             </div>
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-center md:justify-end">
-        <Button variant="blueBg" className="w-[130px] justify-center">
-          Register
-        </Button>
-      </CardFooter>
     </Card>
   );
 }
