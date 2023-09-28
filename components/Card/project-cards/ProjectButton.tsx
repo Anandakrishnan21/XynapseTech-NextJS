@@ -6,7 +6,7 @@ export default function ProjectButton() {
       className="flex justify-around items-center bg-primaryBlue text-white w-full p-2 
     rounded-lg hover:bg-secondaryBlue ease-out duration-700"
     >
-      <p className="text-lg font-light">View More</p>
+      <p className="text-base md:text-lg font-light">View More</p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
