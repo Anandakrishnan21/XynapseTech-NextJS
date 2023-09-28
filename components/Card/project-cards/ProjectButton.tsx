@@ -3,8 +3,8 @@ import React from "react";
 export default function ProjectButton() {
   return (
     <button
-      className="flex justify-around items-center bg-primaryBlue text-white w-full p-2 
-    rounded-lg hover:bg-secondaryBlue ease-out duration-700"
+      className="flex justify-around items-center bg-secondaryBlue text-white w-full p-2 
+    rounded-lg hover:bg-primaryBlue ease-out duration-300"
     >
       <p className="text-base md:text-lg font-light">View More</p>
       <svg
