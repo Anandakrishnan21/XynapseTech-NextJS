@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="w-full transition-all fixed top-0 bg-white dark:bg-slate-950">
+      <header className="w-full z-[10] transition-all fixed top-0 bg-white dark:bg-slate-950">
         <nav
           className={`h-full flex flex-row items-center justify-between px-6 lg:px-10 py-6 ${
             isNavShadow ? "shadow dark:shadow-gray-900" : null
