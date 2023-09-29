@@ -92,7 +92,7 @@ export default function CareerForm() {
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="grid w-full items-center gap-7">
               {/* name field */}
-              <div className="flex items-center justify-between gap-5">
+              <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-5">
                 {/* first name */}
                 <div className="w-full space-y-1.5">
                   <FormField
@@ -254,7 +254,7 @@ export default function CareerForm() {
                 />
               </div>
               {/* cgpa&gradu date */}
-              <div className="flex items-center justify-between gap-5">
+              <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-5">
                 {/*cgpa */}
                 <div className="w-full space-y-1.5">
                   <FormField

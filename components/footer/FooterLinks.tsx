@@ -10,7 +10,7 @@ export default function FooterLinks() {
         {links.map((link) => (
           <p key={link.hash}>
             <Link
-              href={link.hash}
+              href={`/${link.hash}`}
               className="text-sm rounded hover:bg-gray-100/25 text-gray-50 dark:text-gray-300 transition-all"
             >
               {link.name}
@@ -22,7 +22,7 @@ export default function FooterLinks() {
         <p className="text-yellow-400 font-medium text-base mb-2">Contact Us</p>
         <div className="flex flex-col gap-1">
           <Link
-            href="#contact"
+            href="/#contact"
             className="w-fit rounded hover:bg-gray-100/25 transition-all"
           >
             Send Messages

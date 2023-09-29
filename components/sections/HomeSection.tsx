@@ -17,11 +17,23 @@ export default function HomeSection() {
         <SectionTitle>{title}</SectionTitle>
         <SectionDesc textAlign="text-justify">{description}</SectionDesc>
         <div className="mt-5 flex flex-wrap flex-col md:flex-row items-center md:items-start">
-          <Button variant="blueBg" size="big">
+          <Button
+            variant="blueBg"
+            size="big"
+            onClick={() => {
+              location.assign("/#contact");
+            }}
+          >
             Get Started
             <BsArrowRight />
           </Button>
-          <Button variant="blueBorder" size="big">
+          <Button
+            variant="blueBorder"
+            size="big"
+            onClick={() => {
+              location.assign("/");
+            }}
+          >
             Watch Demo
             <BsArrowRight />
           </Button>

@@ -18,11 +18,11 @@ export const links = [
   },
   {
     name: "Blog",
-    hash: "/blog",
+    hash: "blog",
   },
   {
     name: "Career",
-    hash: "/careers",
+    hash: "careers",
   },
 ] as const;
 
