@@ -242,3 +242,29 @@ export const CareerPageContent = [
       "https://images.pexels.com/photos/4974920/pexels-photo-4974920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ] as const;
+
+export const interestArea = [
+  "Web development",
+  "App development",
+  "Machine learning",
+  "Cyber security",
+] as const;
+
+export const internDuration = [
+  "2 Weeks",
+  "1 Month",
+  "2 Months",
+  "3 Months",
+  "6 Months",
+] as const;
+
+export const hearSource = [
+  "Referral from a Friend or Colleague",
+  "Online Job Board",
+  "Company Website/Careers Page",
+  "Social Media Platforms",
+  "University or College Career Center",
+  "Print Advertisement",
+  "Company Presentation or Workshop",
+  "Other",
+] as const;

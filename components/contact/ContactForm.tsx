@@ -1,10 +1,11 @@
 "use client";
 import { sendEmail } from "@/actions/sendEmail";
 import React from "react";
-import toast from "react-hot-toast";
 import ContactFormButton from "./ContactFormButton";
+import { useToast } from "../ui/use-toast";
 
 export default function ContactForm() {
+  const { toast } = useToast();
   return (
     <div className="bg-gray-100 dark:bg-slate-900 p-4 rounded w-full sm:w-[450px] md:min-w-[400px] lg:w-2/3">
       <form
@@ -12,11 +13,16 @@ export default function ContactForm() {
           const { data, error } = await sendEmail(FormData);
 
           if (error) {
-            toast.error(error);
+            toast({
+              variant: "failureVariant",
+              description: error,
+            });
             return;
           }
-
-          toast.success("Email sent successfully!");
+          toast({
+            variant: "successVariant",
+            description: "Email sent successfully!",
+          });
         }}
         autoComplete="off"
       >
@@ -55,7 +61,7 @@ export default function ContactForm() {
         {/* message */}
         <div className="flex flex-col px-5 py-5 ">
           <label htmlFor="emailAddress" className="md:text-lg">
-            Email Address
+            Message
           </label>
           <textarea
             name="senderMessage"
