@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { links } from "@/lib/data";
 import Link from "next/link";
+import { ModeToggle } from "../mode-toggle";
 
 export function HamIcon() {
   return (
@@ -49,6 +50,9 @@ export function HamIcon() {
               <Button variant="default">Get Started</Button>
             </div>
           </ul>
+        </div>
+        <div className="w-full flex justify-end items-end mt-10">
+          <ModeToggle/>
         </div>
         <SheetFooter>
           <div className="absolute left-10 right-10 bottom-8 text-gray-700">

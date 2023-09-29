@@ -1,7 +1,5 @@
 import { links } from "@/lib/data";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import { HamIcon } from "./HamIcon";
 
 export default function NavItem() {
   return (
@@ -16,12 +14,8 @@ export default function NavItem() {
             {link.name}
           </Link>
         ))}
-
-        <Button variant="blueOutline">Get Started</Button>
       </div>
-      <div className="bg-white ml-4 -mr-2 flex lg:hidden">
-        <HamIcon />
-      </div>
+     
     </>
   );
 }

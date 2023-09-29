@@ -60,14 +60,22 @@ export default function CareerForm() {
   });
 
   async function onSubmit(data: Input) {
-    await registerForm(data).then(() => {
-      toast({
-        variant: "successVariant",
-        title: "Registered for the internship.",
-        description:
-          "You've successfully regeistered for the internship. We will send you an email soon.",
+    await registerForm(data)
+      .then(() => {
+        toast({
+          variant: "successVariant",
+          title: "Registered for the internship.",
+          description:
+            "You've successfully regeistered for the internship. We will send you an email soon.",
+        });
+      })
+      .catch((error) => {
+        toast({
+          variant: "failureVariant",
+          title: "Something went wrong!",
+          description: error,
+        });
       });
-    });
     form.reset();
   }
 

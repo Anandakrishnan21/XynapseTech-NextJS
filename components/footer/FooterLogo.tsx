@@ -5,7 +5,7 @@ import Footerlogo from "@/public/footerLogo.png";
 export default function FooterLogo() {
   return (
     <div>
-      <Image src={Footerlogo} height={500} width={230} alt="Footer Logo" />
+      <Image src={Footerlogo} height={500} width={200} alt="Footer Logo" className="w-52" />
     </div>
   );
 }
