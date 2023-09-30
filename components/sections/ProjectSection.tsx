@@ -3,7 +3,7 @@ import React from "react";
 import FlagTitle from "../common/FlagTitle";
 import SectionTitle from "../common/SectionTitle";
 import SectionDesc from "../common/SectionDesc";
-import ProjectCard from "../Card/project-cards/ProjectCard";
+import ProjectCardSlider from "../Card/project-cards/ProjectCardSlider";
 
 export default function ProjectSection() {
   let { flagTitle, flagColor, title, description } = ProjectsSectionContent[0];
@@ -21,7 +21,7 @@ export default function ProjectSection() {
           <SectionDesc textAlign="text-justify">{description}</SectionDesc>
         </div>
       </div>
-      <ProjectCard />
+      <ProjectCardSlider />
     </section>
   );
 }
