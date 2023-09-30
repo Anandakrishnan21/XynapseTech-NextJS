@@ -5,7 +5,7 @@ import { Poppins } from "next/font/google";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { cn } from "@/lib/utils";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,23 +33,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
-          <Toaster
-            position="top-center"
-            toastOptions={{
-              success: {
-                style: {
-                  background: "#E8F5E9",
-                  color: "#1B5E20",
-                },
-              },
-              error: {
-                style: {
-                  background: "#FFEBEE",
-                  color: "#80393C",
-                },
-              },
-            }}
-          />
+          <Toaster />
           <Footer />
         </ThemeProvider>
       </body>

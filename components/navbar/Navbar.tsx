@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Logo from "./Logo";
 import NavItem from "./NavItem";
 import { ModeToggle } from "../mode-toggle";
+import GetStartedBtn from "./GetStartedBtn";
+import { HamIcon } from "./HamIcon";
 export default function Navbar() {
   const [isNavShadow, setNavShadow] = useState(false);
 
@@ -30,12 +32,21 @@ export default function Navbar() {
         >
           <Logo />
           <div className="flex items-center">
-            <ModeToggle />
             <NavItem />
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="hidden lg:block">
+              <ModeToggle />
+            </div>
+            <div className="bg-white ml-4 -mr-2 flex lg:hidden">
+              <HamIcon />
+            </div>
+            <div className="hidden lg:block">
+              <GetStartedBtn />
+            </div>
           </div>
         </nav>
       </header>
-      
     </>
   );
 }

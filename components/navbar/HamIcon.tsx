@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { links } from "@/lib/data";
 import Link from "next/link";
+import { ModeToggle } from "../mode-toggle";
 
 export function HamIcon() {
   return (
@@ -42,13 +43,23 @@ export function HamIcon() {
                 className="py-4 px-5 hover:bg-zinc-200 dark:hover:bg-gray-800 border-b border-zinc-300 dark:border-gray-800 transition-all font-medium"
                 key={link.hash}
               >
-                <Link href={link.hash}>{link.name}</Link>
+                <Link href={`/${link.hash}`}>{link.name}</Link>
               </li>
             ))}
             <div className="text-center py-2">
-              <Button variant="default">Get Started</Button>
+              <Button
+                variant="default"
+                onClick={() => {
+                  location.assign("/#contact");
+                }}
+              >
+                Get Started
+              </Button>
             </div>
           </ul>
+        </div>
+        <div className="w-full flex justify-end items-end mt-10">
+          <ModeToggle />
         </div>
         <SheetFooter>
           <div className="absolute left-10 right-10 bottom-8 text-gray-700">
